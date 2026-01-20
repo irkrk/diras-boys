@@ -1,8 +1,8 @@
 // Diras Boys - Main Application JavaScript
 // ==========================================
 
-// Individual RSVP Reset Interval (12 hours in milliseconds)
-const RSVP_RESET_INTERVAL = 12 * 60 * 60 * 1000;
+// Individual RSVP Reset Interval (14 hours in milliseconds)
+const RSVP_RESET_INTERVAL = 14 * 60 * 60 * 1000;
 
 // Default Animal Images
 // Local images for sloth, alligator, skunk (from D:\imp pics)
@@ -176,7 +176,7 @@ function checkIndividualTimers() {
                 // Timer expired - reset this user to pending
                 delete data[username];
                 changed = true;
-                console.log(`${username}'s RSVP has been reset (12 hours expired)`);
+                console.log(`${username}'s RSVP has been reset (14 hours expired)`);
             }
         }
     });
@@ -263,7 +263,7 @@ function updateCurrentUserTimerDisplay() {
         timerEl.innerHTML = `Your response resets in: <span class="time">${formatTimeRemaining(time)}</span>`;
         timerEl.style.display = 'block';
     } else {
-        timerEl.innerHTML = `<span style="color: #888;">No active timer - respond to start your 12-hour countdown</span>`;
+        timerEl.innerHTML = `<span style="color: #888;">No active timer - respond to start your 14-hour countdown</span>`;
         timerEl.style.display = 'block';
     }
 }
