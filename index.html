@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diras Boys</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>DIRAS BOYS</h1>
+            <p class="subtitle arabic">الشيبان</p>
+        </div>
+
+        <!-- Login Section -->
+        <div class="login-section" id="loginSection">
+            <h2>Welcome Back</h2>
+            <div class="error-msg" id="errorMsg"></div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Select Your Name</label>
+                    <select id="nameSelect" required>
+                        <option value="">Choose your identity...</option>
+                        <option value="al5ya6">al5ya6</option>
+                        <option value="shded alba's">shded alba's</option>
+                        <option value="m9re">m9re</option>
+                        <option value="froska">froska</option>
+                        <option value="ktoosh">ktoosh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="passwordInput" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Enter</button>
+            </form>
+        </div>
+
+        <!-- Main App -->
+        <div class="main-app" id="mainApp">
+            <!-- User Header -->
+            <div class="user-header">
+                <div class="user-profile">
+                    <div class="user-avatar-small" id="currentAvatar"></div>
+                    <div class="user-info">
+                        <h3 id="currentName"></h3>
+                        <span id="currentAnimal"></span>
+                    </div>
+                </div>
+                <button class="btn btn-danger btn-logout" onclick="logout()">Logout</button>
+            </div>
+
+            <!-- RSVP Section -->
+            <div class="rsvp-card">
+                <h2>Next Meetup</h2>
+                <p>Are you coming to the next Diras Boys gathering?</p>
+                <div class="rsvp-buttons">
+                    <button class="btn btn-success" onclick="setRSVP('coming')">Coming</button>
+                    <button class="btn btn-danger" onclick="setRSVP('not-coming')">Not Coming</button>
+                    <button class="btn btn-secondary" onclick="setRSVP('pending')">Reset to Pending</button>
+                </div>
+                <div id="yourStatus"></div>
+                <div class="reset-timer" id="resetTimer">RSVP resets in: <span class="time">--:--:--</span></div>
+            </div>
+
+            <!-- Members Section -->
+            <div class="members-section">
+                <h2>The Squad</h2>
+                <div class="members-grid" id="membersGrid"></div>
+            </div>
+
+            <!-- Image Upload Section (only for certain users) -->
+            <div class="image-upload-section" id="imageUploadSection" style="display: none;">
+                <h3>Upload Your Photo</h3>
+                <p style="color: #888; margin-bottom: 20px; font-size: 14px;">Upload a custom image for your profile (max 2MB)</p>
+
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageFileInput" accept="image/*">
+                    <p>Drag & drop an image here or click to browse</p>
+                    <button class="btn btn-secondary" type="button">Choose File</button>
+                </div>
+
+                <div class="current-image-preview" id="currentImagePreview"></div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div class="admin-panel" id="adminPanel" style="display: none;">
+                <h3>Admin Dashboard</h3>
+                <div class="admin-stats">
+                    <div class="admin-stat stat-coming">
+                        <div class="number" id="adminComing">0</div>
+                        <div class="label">Coming</div>
+                    </div>
+                    <div class="admin-stat stat-not-coming">
+                        <div class="number" id="adminNotComing">0</div>
+                        <div class="label">Not Coming</div>
+                    </div>
+                    <div class="admin-stat stat-pending">
+                        <div class="number" id="adminPending">0</div>
+                        <div class="label">Pending</div>
+                    </div>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-danger" onclick="adminResetRSVP()">Reset All RSVP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
